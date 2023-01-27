@@ -1,0 +1,24 @@
+#   1. Modify this file to fit your own environment
+#   2. Copy this file synopsys_dc.setup to .synopsys_dc.setup 
+#      and put it in tool's invoking directory or your home directory.
+
+set company "CIC"
+set designer "Student"
+set search_path      " /home/cell_lib/CBDK_TSMC018_Arm_v4.0/CIC/SynopsysDC/db/ $search_path"
+set link_library     "* slow.db fast.db tpz973gvwc.db tpz973gvtc.db tpz973gvbc.db dw_foundation.sldb"
+set target_library   " slow.db fast.db tpz973gvwc.db tpz973gvtc.db tpz973gvbc.db"
+set symbol_library   "tsmc18.sdb generic.sdb"
+set synthetic_library "dw_foundation.sldb"
+
+set hdlin_translate_off_skip_text "TRUE"
+set edifout_netlist_only "TRUE"
+set verilogout_no_tri true
+set plot_command {lpr -Plp}
+
+set sh_enable_line_editing true
+set sh_line_editing_mode emacs
+history keep 100
+alias h history
+
+
+set view_script_submenu_items [list {Avoid assign statement} {set_fix_multiple_port_nets -all -buffer_constant} {Change Naming Rule} {change_names -rule verilog -hierarchy} {Write SDF} {write_sdf -version 1.0 -context verilog chip.sdf}]
